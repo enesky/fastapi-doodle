@@ -32,16 +32,29 @@ def home():
     return {"message": "Welcome to the FastAPI application!"}
 ```
 
-## Uygulamayı çalıştırmak
+## Uygulamaları çalıştırmak
+
+Birinci VS Code terminalinde `main.py` uygulamasını çalıştır:
 
 ```bash
-python -m uvicorn main:app --reload
+source venv/bin/activate
+python -m uvicorn main:app --reload --port 8000
 ```
 
-Bu komutu VS Code terminalinde çalıştır. Uvicorn başlangıç ve istek logları aynı terminalde görünür. Sunucu çalışırken terminal açık kalmalıdır.
+İkinci VS Code terminalinde `main2.py` uygulamasını çalıştır:
 
-- Uygulama: http://127.0.0.1:8000
-- API dokümantasyonu: http://127.0.0.1:8000/docs
+```bash
+source venv/bin/activate
+python -m uvicorn main2:app --reload --port 8001
+```
+
+Uvicorn başlangıç ve istek logları ilgili terminalde görünür. Sunucular çalışırken iki terminal de açık kalmalıdır.
+
+- `main.py`: http://127.0.0.1:8000
+- `main.py` API dokümantasyonu: http://127.0.0.1:8000/docs
+- `main2.py`: http://127.0.0.1:8001
+- `main2.py` kurslar: http://127.0.0.1:8001/courses
+- `main2.py` API dokümantasyonu: http://127.0.0.1:8001/docs
 
 Tarayıcıda uygulamayı açınca terminalde aşağıdakine benzer bir istek logu görünür:
 
@@ -57,7 +70,7 @@ curl http://127.0.0.1:8000/
 
 Tarayıcının istediği `/favicon.ico` için görülen `404 Not Found` geliştirme sırasında normaldir.
 
-Sunucuyu durdurmak için terminalde `Control + C` tuşlarına bas.
+Bir sunucuyu durdurmak için çalıştığı terminalde `Control + C` tuşlarına bas.
 
 ## Projeyi daha sonra tekrar kurmak
 
