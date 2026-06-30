@@ -18,6 +18,31 @@ python -m pip install fastapi uvicorn
 python -m pip freeze > requirements.txt
 ```
 
+## İlk FastAPI uygulaması
+
+`main.py` dosyasını oluştur ve aşağıdaki kodu ekle:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to the FastAPI application!"}
+```
+
+## Uygulamayı çalıştırmak
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+- Uygulama: http://127.0.0.1:8000
+- API dokümantasyonu: http://127.0.0.1:8000/docs
+
+Sunucuyu durdurmak için terminalde `Control + C` tuşlarına bas.
+
 ## Projeyi daha sonra tekrar kurmak
 
 ```bash
