@@ -38,8 +38,24 @@ def home():
 python -m uvicorn main:app --reload
 ```
 
+Bu komutu VS Code terminalinde çalıştır. Uvicorn başlangıç ve istek logları aynı terminalde görünür. Sunucu çalışırken terminal açık kalmalıdır.
+
 - Uygulama: http://127.0.0.1:8000
 - API dokümantasyonu: http://127.0.0.1:8000/docs
+
+Tarayıcıda uygulamayı açınca terminalde aşağıdakine benzer bir istek logu görünür:
+
+```text
+127.0.0.1 - "GET / HTTP/1.1" 200 OK
+```
+
+`return` ile dönen mesaj terminale yazılmaz; tarayıcıda görünür. İkinci bir terminalden görmek için:
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+Tarayıcının istediği `/favicon.ico` için görülen `404 Not Found` geliştirme sırasında normaldir.
 
 Sunucuyu durdurmak için terminalde `Control + C` tuşlarına bas.
 
