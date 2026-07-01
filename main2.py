@@ -1,11 +1,5 @@
 from fastapi import FastAPI, HTTPException
 
-app = FastAPI(
-    title="FastAPI Eğitim Platformu",
-    description="Bu API, FastAPI ile eğitim platformu için örnek bir uygulamadır.",
-    version="1.0.0"
-)
-
 tags_metadata = [
     {
         "name": "Genel",
@@ -20,6 +14,13 @@ tags_metadata = [
         "description": "Kullanıcılarla ilgili işlemler"
     }
 ]
+
+app = FastAPI(
+    title="FastAPI Eğitim Platformu",
+    description="Bu API, FastAPI ile eğitim platformu için örnek bir uygulamadır.",
+    version="1.0.0",
+    openapi_tags=tags_metadata,
+)
 
 courses = [
     {
