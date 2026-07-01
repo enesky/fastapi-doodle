@@ -62,6 +62,16 @@ source venv/bin/activate
 python main-post-test.py
 ```
 
+PUT, PATCH ve DELETE ders örneklerini ayrı portlarda çalıştırabilirsin:
+
+```bash
+python -m uvicorn main-put:app --reload --port 8004
+python -m uvicorn main-put-patch:app --reload --port 8005
+python -m uvicorn main-put-patch-delete:app --reload --port 8006
+```
+
+Her komutu ayrı terminalde çalıştır. Swagger adresleri sırasıyla `/docs` eklenmiş 8004, 8005 ve 8006 portlarıdır.
+
 Uvicorn başlangıç ve istek logları ilgili terminalde görünür. Sunucular çalışırken iki terminal de açık kalmalıdır.
 
 - `main.py`: http://127.0.0.1:8000
@@ -103,6 +113,21 @@ python -m uvicorn main:app --reload --port 8003
 - Veri özeti: http://127.0.0.1:8003/data
 - Temel analiz: http://127.0.0.1:8003/analysis
 - Tahmin: `POST http://127.0.0.1:8003/predict`
+
+## SQLite CRUD API
+
+SQLite kullanan kalıcı GET, POST, PUT, PATCH ve DELETE örneği:
+
+```bash
+cd db-fastapi-example
+source ../venv/bin/activate
+python -m pip install -r requirements.txt
+python create_db.py
+python -m uvicorn main:app --reload --port 8007
+```
+
+- API dokümantasyonu: http://127.0.0.1:8007/docs
+- Testler: `python -m pytest -q`
 
 ## Projeyi daha sonra tekrar kurmak
 
